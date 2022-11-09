@@ -1,5 +1,5 @@
 # Project exclude paths
-/ssia-ch2-ex1/target/
+/**/target/
 # Created by https://www.toptal.com/developers/gitignore/api/java,gradle,idea,intellij,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,gradle,idea,intellij,eclipse
 ## Etc
