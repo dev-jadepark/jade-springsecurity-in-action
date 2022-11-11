@@ -2,9 +2,12 @@ package dev.jadepark.config;
 
 import dev.jadepark.entity.User;
 import dev.jadepark.service.InMemoryUserDetailsService;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.cglib.proxy.NoOp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 @Configuration
+@EnableAsync
 public class ProjectConfig {
     @Bean
     public UserDetailsService userDetailsService(DataSource dataSource) {
@@ -49,5 +53,12 @@ public class ProjectConfig {
         //DelegatingPasswordEncoder는 PasswordEncoder 인터페이스의 한 구현이며 자체 인코딩 알고리즘을 구현하는 대신 같은 계약의 다른 구현 인스턴스에 작업을 위임한다. (접두사기준)
     }
     */
+
+    @Bean
+    public InitializingBean initializingBean() {
+        return () -> SecurityContextHolder.setStrategyName(
+                SecurityContextHolder.MODE_INHERITABLETHREADLOCAL   //비동기 스레드에서 보안컨텍스트를 복사하는 전략을 사용한다.
+        );
+    }
 
 }

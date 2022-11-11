@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ssia-ch3" />
         <module name="ssia-ch2-ex1" />
+        <module name="ssia-ch5" />
       </profile>
     </annotationProcessing>
   </component>
