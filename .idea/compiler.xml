@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ssia-ch3" />
+        <module name="ssia-ch6" />
         <module name="ssia-ch2-ex1" />
+        <module name="ssia-ch3" />
         <module name="ssia-ch5" />
       </profile>
     </annotationProcessing>
